@@ -177,12 +177,20 @@ export const Calculator = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export const Close = ({ className }: { className?: string }) => (
+export const Close = ({
+  className,
+  width = '12',
+  height = '12',
+}: {
+  className?: string;
+  width?: string;
+  height?: string;
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
-    width="12"
-    height="12"
+    width={width}
+    height={height}
     className={className}
     focusable="false"
     aria-hidden="true"
@@ -243,6 +251,7 @@ export const UpArrowIcon = () => (
     <path d="M31.1 2.5H1v2.8h30.1zM14.3 13.3 31 29.5v-6.7L16 8.1.9 22.8v6.7l16.8-16.2z" />
   </svg>
 );
+
 export const DownArrowIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
