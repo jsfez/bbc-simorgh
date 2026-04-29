@@ -177,20 +177,12 @@ export const Calculator = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export const Close = ({
-  className,
-  width = '12',
-  height = '12',
-}: {
-  className?: string;
-  width?: string;
-  height?: string;
-}) => (
+export const Close = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
-    width={width}
-    height={height}
+    width="12"
+    height="12"
     className={className}
     focusable="false"
     aria-hidden="true"
@@ -281,7 +273,6 @@ export const AccountIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-<<<<<<< HEAD
 export const BookmarkIcon = ({ className }: { className?: string }) => (
   <svg
     width="20"
@@ -326,7 +317,9 @@ export const Spinner = ({ className }: { className?: string }) => (
     aria-hidden="true"
   >
     <path d="m29 8.3-2.5 1.5c1.1 1.8 1.6 3.9 1.6 6.2 0 6.9-5.3 12.2-12.1 12.2-6.9 0-12.1-5.3-12.1-12.2S9.1 3.8 16 3.8V1C7.5 1 1 7.5 1 16s6.5 15 15 15 15-6.5 15-15c0-2.9-.7-5.5-2-7.7" />
-=======
+  </svg>
+);
+
 export const RedCardSVG = ({ className }: { className?: string }) => (
   <svg
     enableBackground="new 0 0 9.22 13.36"
@@ -362,6 +355,5 @@ export const SecondYellowCardSVG = ({ className }: { className?: string }) => (
     <path d="m-68.14-22.48v-9.73h-4.52v11.82h8.47v-2.09z" fill="#ffd230" />
     <path d="m5.61 0h9.22v13.36h-9.22z" fill="#f51a5a" />
     <path d="m4.53 14.44v-9.89h-4.53v13.36h9.22v-3.47z" fill="#ffd230" />
->>>>>>> 516cea169e (WS-2524: Adds card SVGs as icons. Refactors card component to use icons)
   </svg>
 );
