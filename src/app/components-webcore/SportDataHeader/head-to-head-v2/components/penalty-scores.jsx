@@ -1,6 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import VisuallyHiddenText from '../../../../components/VisuallyHiddenText';
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 const PenaltyScores = ({ data }) => {
   const { winner, seriesWinner, multiLeg, status } = data;
@@ -29,16 +28,18 @@ const PenaltyScores = ({ data }) => {
     data[loserOnPenalties].runningScores.penaltyShootout;
 
   return (
-    <div css={styles.penaltyScoresContainer()}>
+    <div className={styles.penaltyScoresContainer}>
       <VisuallyHiddenText>
         {`${winnerOnPenaltiesName} win ${winnerOnPenaltiesScore} - ${loserOnPenaltiesScore} on penalties`}
       </VisuallyHiddenText>
       <div
-        css={styles.penaltiesText()}
+        className={styles.penaltiesText}
         aria-hidden="true"
         data-testid="penalties-text"
       >
-        <span css={styles.winningTeamName()}>{`${winnerOnPenaltiesName}`}</span>
+        <span
+          className={styles.winningTeamName}
+        >{`${winnerOnPenaltiesName}`}</span>
         {` win ${winnerOnPenaltiesScore}-${loserOnPenaltiesScore} on pens`}
       </div>
     </div>

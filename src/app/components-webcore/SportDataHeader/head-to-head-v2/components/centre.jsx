@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import {
   isCalledOffStatus,
   isInProgressStatus,
@@ -7,7 +6,7 @@ import {
 
 import Time from './fixture-time';
 import Score from './score';
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 export const shouldShowScores = statusGroup =>
   isInProgressStatus(statusGroup) ||
@@ -28,9 +27,13 @@ const Played = ({ data, isConciseView }) => (
 
 const Centre = ({ data, isConciseView, maxScoreLength }) => {
   const { status } = data;
+  const centreClassName =
+    maxScoreLength && maxScoreLength > 1
+      ? styles.centreWideScore
+      : styles.centre;
 
   return (
-    <div css={styles.centre(maxScoreLength)}>
+    <div className={centreClassName}>
       {shouldShowScores(status) ? (
         <Played data={data} isConciseView={isConciseView} />
       ) : (

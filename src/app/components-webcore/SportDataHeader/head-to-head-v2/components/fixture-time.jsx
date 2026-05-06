@@ -1,10 +1,9 @@
-/** @jsxImportSource @emotion/react */
 import VisuallyHiddenText from '../../../../components/VisuallyHiddenText';
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 const Time = ({ time }) => (
   <>
-    <time css={styles.fixtureTime()} aria-hidden="true">
+    <time className={styles.fixtureTime} aria-hidden="true">
       {time.displayTimeUK}
     </time>
     <VisuallyHiddenText>{time.accessibleTime}</VisuallyHiddenText>

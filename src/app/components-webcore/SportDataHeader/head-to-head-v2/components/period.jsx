@@ -1,6 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import { getFallbackFootballPeriodLabel } from '../helpers/event-summary';
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 const Period = ({ labels, status, homeRunningScores, awayRunningScores }) => {
   const period = getFallbackFootballPeriodLabel(
@@ -10,7 +9,7 @@ const Period = ({ labels, status, homeRunningScores, awayRunningScores }) => {
     awayRunningScores,
   );
   return (
-    <div css={styles.period()} aria-hidden="true">
+    <div className={styles.period} aria-hidden="true">
       <div>{period.value}</div>
     </div>
   );

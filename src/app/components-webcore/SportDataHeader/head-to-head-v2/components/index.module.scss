@@ -1,0 +1,768 @@
+@use '@scss/px-to-rem' as *;
+
+// ==================== Action Grid ====================
+.actionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'centre_text   centre_text'
+    'home_text     away_text';
+
+  @media (min-width: px-to-rem(600)) {
+    grid-template-columns: 1fr px-to-rem(150) 1fr;
+    grid-template-areas: 'home_text   centre_text   away_text';
+  }
+}
+
+// ==================== Action ====================
+.actionListHome {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: px-to-rem(600)) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-block-start: px-to-rem(4);
+    justify-content: flex-end;
+  }
+}
+
+.actionListAway {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: px-to-rem(600)) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-block-start: px-to-rem(4);
+    justify-content: flex-start;
+  }
+}
+
+.actionItemHome {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 700;
+  font-feature-settings: 'ss01' off;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block-end: px-to-rem(8);
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-end: px-to-rem(8);
+    padding-inline-start: px-to-rem(12);
+  }
+}
+
+.actionItemAway {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 700;
+  font-feature-settings: 'ss01' off;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block-end: px-to-rem(8);
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-end: px-to-rem(8);
+    padding-inline-end: px-to-rem(12);
+  }
+}
+
+// ==================== Actions Time ====================
+.textBlock {
+  white-space: nowrap;
+}
+
+// ==================== Card ====================
+.cardWrapper {
+  padding-inline: px-to-rem(3.2);
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.redCard {
+  padding-inline: px-to-rem(3.2);
+  display: inline-block;
+  vertical-align: bottom;
+  width: px-to-rem(11.2);
+  margin-block-end: px-to-rem(-3.2);
+}
+
+.yellowCard {
+  padding-inline: px-to-rem(3.2);
+  display: inline-block;
+  vertical-align: bottom;
+  margin-block-end: px-to-rem(-6.4);
+  width: px-to-rem(16);
+}
+
+.cardContainer {
+  display: inline-block;
+  box-sizing: content-box;
+}
+
+// ==================== Centre ====================
+.centre {
+  display: flex;
+  flex-direction: column;
+  align-self: space-evenly;
+  min-width: px-to-rem(77);
+
+  @media (min-width: px-to-rem(600)) {
+    min-width: px-to-rem(85);
+  }
+}
+
+.centreWideScore {
+  display: flex;
+  flex-direction: column;
+  align-self: space-evenly;
+  min-width: px-to-rem(90);
+
+  @media (min-width: px-to-rem(600)) {
+    min-width: px-to-rem(106);
+  }
+}
+
+// ==================== Fixture Time ====================
+.fixtureTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: px-to-rem(40);
+  line-height: 1.125;
+  font-weight: 500;
+  padding-inline: px-to-rem(4);
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: px-to-rem(50);
+    line-height: 1.08;
+    padding-inline: px-to-rem(32);
+  }
+}
+
+// ==================== Footer ====================
+.footer {
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block-end: px-to-rem(16);
+  text-align: center;
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-end: px-to-rem(8);
+  }
+}
+
+.footerTextWrapper {
+  display: inline-block;
+  font-size: px-to-rem(13);
+
+  &:not(:first-child) {
+    margin-inline-start: px-to-rem(8);
+  }
+}
+
+.venue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-block-end: px-to-rem(4);
+}
+
+.attendanceValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.venueLabel {
+  color: #a8a8a8;
+  padding-inline-end: px-to-rem(4);
+}
+
+.attendanceLabel {
+  color: #a8a8a8;
+  padding-inline-end: px-to-rem(4);
+}
+
+.horizontalRule {
+  width: px-to-rem(12);
+  border: none;
+  border-block-start: px-to-rem(1) solid #ffd230;
+  padding-block-end: px-to-rem(4);
+}
+
+// ==================== Grouped Events ====================
+.groupedEventsWrapper {
+  margin-block: px-to-rem(8) 0;
+  margin-inline: px-to-rem(24);
+}
+
+.actionWrapper {
+  border-block-start: px-to-rem(1) solid #505050;
+}
+
+.groupLabel {
+  grid-area: centre_text;
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 700;
+  font-feature-settings: 'ss01' off;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.375;
+  padding-block: px-to-rem(8) px-to-rem(4);
+
+  @media (min-width: px-to-rem(600)) {
+    padding-block: px-to-rem(8) px-to-rem(20);
+  }
+}
+
+.groupedHomeEvent {
+  grid-area: home_text;
+  text-align: end;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block: 0 px-to-rem(12);
+  padding-inline: 0 px-to-rem(16);
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block: px-to-rem(8) px-to-rem(20);
+    padding-inline: 0;
+  }
+}
+
+.groupedAwayEvent {
+  grid-area: away_text;
+  text-align: start;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block: 0 px-to-rem(12);
+  padding-inline: px-to-rem(16) 0;
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block: px-to-rem(8) px-to-rem(20);
+    padding-inline: 0;
+  }
+}
+
+// ==================== Head-to-Head Banner ====================
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    'home_team         scores            away_team'
+    'progress          progress          progress';
+}
+
+.gridContainerConcise {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  grid-template-areas:
+    'home_team         scores            away_team'
+    'progress          progress          progress';
+}
+
+.gridContainerWithBadges {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    'home_team         scores            away_team'
+    'progress          progress          progress';
+
+  @media (max-width: calc(#{px-to-rem(600)} - #{px-to-rem(1)})) {
+    grid-template-columns: 1fr auto auto 1fr;
+    grid-template-areas:
+      'home_team         scores            scores            away_team'
+      'home_team         progress          progress          away_team';
+  }
+}
+
+.withInlineFallback {
+  @supports not (display: grid) {
+    display: inline-block;
+    width: 33%;
+  }
+}
+
+.teamHome {
+  grid-area: home_team;
+  display: flex;
+  align-items: stretch;
+
+  @supports not (display: grid) {
+    display: inline-block;
+    width: 33%;
+  }
+}
+
+.teamAway {
+  grid-area: away_team;
+  display: flex;
+  align-items: stretch;
+
+  @supports not (display: grid) {
+    display: inline-block;
+    width: 33%;
+  }
+}
+
+.scores {
+  grid-area: scores;
+  margin: auto;
+
+  @supports not (display: grid) {
+    display: inline-block;
+    width: 33%;
+  }
+}
+
+.matchProgressContainer {
+  grid-area: progress;
+}
+
+// ==================== Head-to-Head Header ====================
+.headerWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block-end: px-to-rem(16);
+  padding-block-start: px-to-rem(16);
+
+  @media (min-width: px-to-rem(600)) {
+    flex-direction: row;
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-start: px-to-rem(24);
+  }
+}
+
+.headerWrapperLive {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding-block-end: px-to-rem(16);
+  padding-block-start: 0;
+
+  @media (min-width: px-to-rem(600)) {
+    flex-direction: row;
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-start: px-to-rem(8);
+  }
+}
+
+.dateWrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  @media (min-width: px-to-rem(600)) {
+    flex-direction: row;
+  }
+}
+
+.dateHeader {
+  display: flex;
+  justify-content: center;
+  padding-block-end: px-to-rem(4);
+
+  @media (min-width: px-to-rem(600)) {
+    padding-block-end: 0;
+  }
+}
+
+.interpunct {
+  color: #a8a8a8;
+  display: none;
+
+  @media (min-width: px-to-rem(600)) {
+    display: inline;
+    padding-inline: px-to-rem(8);
+  }
+}
+
+.tournamentHeader {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.date {
+  color: #a8a8a8;
+  flex-shrink: 0;
+}
+
+.competitionFormatter {
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  flex-shrink: 1;
+}
+
+// ==================== Key Events ====================
+%keyEventsBase {
+  padding-inline: px-to-rem(16);
+
+  @supports not (display: grid) {
+    display: inline-flex;
+    width: 50%;
+    box-sizing: border-box;
+  }
+}
+
+.keyEventsHome {
+  @extend %keyEventsBase;
+  text-align: end;
+  grid-area: home_text;
+
+  @media (min-width: px-to-rem(600)) {
+    padding-inline: 0;
+  }
+}
+
+.keyEventsAway {
+  @extend %keyEventsBase;
+  grid-area: away_text;
+
+  @media (min-width: px-to-rem(600)) {
+    padding-inline: 0;
+  }
+}
+
+// ==================== Match Progress ====================
+.matchProgressWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.matchProgressWrapperFull {
+  display: flex;
+  flex-direction: column;
+  padding-block: px-to-rem(8) px-to-rem(4);
+  gap: px-to-rem(8);
+}
+
+.aggregateScore {
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  text-align: center;
+}
+
+// ==================== Penalty Scores ====================
+.penaltyScoresContainer {
+  font-size: 1rem;
+  line-height: 1.375;
+  text-align: center;
+  padding-block: px-to-rem(4);
+
+  @media (min-width: px-to-rem(600)) {
+    padding-block-end: px-to-rem(8);
+  }
+}
+
+.winningTeamName {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 700;
+  font-feature-settings: 'ss01' off;
+  color: #ffd230;
+}
+
+.penaltiesText {
+  color: #a8a8a8;
+}
+
+// ==================== Period ====================
+.period {
+  display: flex;
+  justify-content: center;
+  color: #ffd230;
+  font-size: 1rem;
+  line-height: 1.375;
+}
+
+// ==================== Score ====================
+.score {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: 'home_score  vertical_line  away_score';
+  font-weight: 500;
+  align-items: center;
+  color: #f8f8f8;
+  font-size: px-to-rem(40);
+  line-height: 1.1;
+  padding-inline: px-to-rem(4);
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: px-to-rem(50);
+    line-height: 1.08;
+    padding-inline: px-to-rem(24);
+  }
+}
+
+.homeScore {
+  grid-area: home_score;
+  text-align: end;
+}
+
+.awayScore {
+  grid-area: away_score;
+  text-align: start;
+}
+
+.verticalLine {
+  border-inline-start: px-to-rem(2) solid #ffd230;
+  display: inline-block;
+  margin-inline: px-to-rem(16);
+  grid-area: vertical_line;
+  height: px-to-rem(38);
+
+  @media (min-width: px-to-rem(600)) {
+    height: px-to-rem(44);
+  }
+}
+
+// ==================== Score Details ====================
+.scoreDetailsWrapper {
+  grid-area: centre_text;
+  display: flex;
+  row-gap: px-to-rem(8);
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  text-align: center;
+  color: #f8f8f8;
+  padding-block: px-to-rem(4) px-to-rem(12);
+  flex-direction: row;
+  justify-content: center;
+
+  @media (min-width: px-to-rem(600)) {
+    padding-block: px-to-rem(4) px-to-rem(8);
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.scoreDetailsScore {
+  color: #a8a8a8;
+}
+
+.scoreDetailsComma {
+  color: #a8a8a8;
+  padding-inline-end: px-to-rem(4);
+
+  @media (min-width: px-to-rem(600)) {
+    display: none;
+  }
+}
+
+// ==================== Team Name ====================
+.teamNameWrapper {
+  display: flex;
+  gap: px-to-rem(8);
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1.375;
+  padding: 0 px-to-rem(8);
+
+  @media (min-width: px-to-rem(600)) {
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 1.1666666666666667;
+  }
+}
+
+.teamNameWrapperWithBadges {
+  display: flex;
+  gap: px-to-rem(8);
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1.375;
+  padding: 0 0 px-to-rem(8);
+
+  @media (min-width: px-to-rem(600)) {
+    padding: 0;
+    font-size: 1.5rem;
+    line-height: 1.1666666666666667;
+  }
+}
+
+.teamNameWrapperConcise {
+  display: flex;
+  gap: px-to-rem(8);
+  align-items: center;
+  font-size: px-to-rem(14);
+  line-height: 1.2857142857142858;
+  padding: 0;
+
+  @media (min-width: px-to-rem(600)) {
+    font-size: px-to-rem(16);
+    line-height: 1.375;
+  }
+}
+
+.mobileValue {
+  @media (min-width: px-to-rem(900)) {
+    display: none;
+  }
+}
+
+.desktopValue {
+  display: none;
+
+  @media (min-width: px-to-rem(900)) {
+    display: inline;
+  }
+}
+
+// ==================== Team ====================
+.team {
+  display: flex;
+  gap: px-to-rem(8);
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 2;
+  font-size: 1rem;
+  line-height: 1.375;
+  flex-direction: row;
+
+  @media (min-width: px-to-rem(600)) {
+    gap: px-to-rem(20);
+    flex-direction: row;
+  }
+}
+
+.teamWithBadges {
+  display: flex;
+  gap: px-to-rem(8);
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 2;
+  font-size: 1rem;
+  line-height: 1.375;
+  flex-direction: column;
+
+  @media (min-width: px-to-rem(600)) {
+    gap: px-to-rem(20);
+    flex-direction: row;
+  }
+}
+
+.teamConcise {
+  display: flex;
+  gap: px-to-rem(8);
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 2;
+  font-size: 1rem;
+  line-height: 1.375;
+  flex-direction: row;
+
+  @media (min-width: px-to-rem(600)) {
+    gap: px-to-rem(12);
+  }
+}
+
+.teamHome {
+  justify-content: flex-end;
+  text-align: end;
+}
+
+.teamHomeWithBadges {
+  justify-content: flex-end;
+  text-align: end;
+
+  @media (max-width: calc(#{px-to-rem(600)} - #{px-to-rem(1)})) {
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+.teamAway {
+  justify-content: flex-start;
+  text-align: start;
+}
+
+.teamAwayWithBadges {
+  justify-content: flex-start;
+  text-align: start;
+
+  @media (max-width: calc(#{px-to-rem(600)} - #{px-to-rem(1)})) {
+    text-align: center;
+  }
+}
+
+// ==================== Sport Badge ====================
+.badgeContainer {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  width: px-to-rem(20);
+  height: px-to-rem(20);
+
+  @media (min-width: px-to-rem(600)) {
+    width: px-to-rem(20);
+    height: px-to-rem(20);
+  }
+
+  @media (min-width: px-to-rem(900)) {
+    width: px-to-rem(27);
+    height: px-to-rem(27);
+  }
+}
+
+.badgeImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+// ==================== Head-to-Head Wrapper (main component) ====================
+.headToHeadWrapper {
+  background: #181818; // GREY_16
+  border-left: medium none #009e9e;
+}
+
+.headToHeadWrapperConcise {
+  background: #202020; // GREY_15
+  border-left: medium none #009e9e;
+}
+
+.headToHead {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 400;
+  font-feature-settings: 'ss01' off;
+  color: #f8f8f8;
+  padding: 0;
+  padding-bottom: px-to-rem(24);
+
+  @media (max-width: px-to-rem(600)) {
+    padding-top: 0;
+    padding-bottom: px-to-rem(8);
+  }
+}
+
+.headToHeadConcise {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 400;
+  font-feature-settings: 'ss01' off;
+  color: #f8f8f8;
+  padding: 8px;
+}

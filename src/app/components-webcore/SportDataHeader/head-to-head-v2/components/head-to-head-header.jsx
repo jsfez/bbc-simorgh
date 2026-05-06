@@ -1,6 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import { isLiveStatus } from '../helpers/event-status-groups';
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 const formatTournamentDescriptionLabel = tournamentDescriptionLabel => {
   const tournamentGroupsArray = tournamentDescriptionLabel.split(' - ');
@@ -9,14 +8,17 @@ const formatTournamentDescriptionLabel = tournamentDescriptionLabel => {
     if (tournamentGroupsArray.length === i + 1) {
       return (
         // eslint-disable-next-line react/no-array-index-key
-        <div css={styles.competitionFormatter()} key={`tournament_part_${i}`}>
+        <div
+          className={styles.competitionFormatter}
+          key={`tournament_part_${i}`}
+        >
           {element}
         </div>
       );
     }
     return (
       // eslint-disable-next-line react/no-array-index-key
-      <div css={styles.competitionFormatter()} key={`tournament_part_${i}`}>
+      <div className={styles.competitionFormatter} key={`tournament_part_${i}`}>
         {element} -{' '}
       </div>
     );
@@ -24,18 +26,22 @@ const formatTournamentDescriptionLabel = tournamentDescriptionLabel => {
 };
 
 const HeadToHeadHeader = ({ date, tournamentDescriptionLabel, status }) => (
-  <div css={styles.headerWrapper(isLiveStatus(status))}>
+  <div
+    className={
+      isLiveStatus(status) ? styles.headerWrapperLive : styles.headerWrapper
+    }
+  >
     {!isLiveStatus(status) && (
-      <div css={styles.dateWrapper()}>
-        <div css={styles.dateHeader()}>
-          <time css={styles.date()}>{date}</time>
+      <div className={styles.dateWrapper}>
+        <div className={styles.dateHeader}>
+          <time className={styles.date}>{date}</time>
         </div>
-        <div css={styles.interpunct()} aria-hidden>
+        <div className={styles.interpunct} aria-hidden>
           ‧
         </div>
       </div>
     )}
-    <div css={styles.tournamentHeader()}>
+    <div className={styles.tournamentHeader}>
       {formatTournamentDescriptionLabel(tournamentDescriptionLabel)}
     </div>
   </div>

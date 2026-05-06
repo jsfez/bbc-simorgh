@@ -1,5 +1,4 @@
-/** @jsxImportSource @emotion/react */
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 const MATCH_STATUS_LETTERS = {
   Postponed: 'P',
@@ -18,10 +17,10 @@ const Score = ({
   const awayScore = awayScoreUnconfirmed || away;
 
   return (
-    <div css={styles.score()} data-testid="score" aria-hidden="true">
-      <div css={styles.homeScore()}>{matchStatusLetter || homeScore}</div>
-      <div css={styles.verticalLine()} />
-      <div css={styles.awayScore()}>{matchStatusLetter || awayScore}</div>
+    <div className={styles.score} data-testid="score" aria-hidden="true">
+      <div className={styles.homeScore}>{matchStatusLetter || homeScore}</div>
+      <div className={styles.verticalLine} />
+      <div className={styles.awayScore}>{matchStatusLetter || awayScore}</div>
     </div>
   );
 };
@@ -29,5 +28,5 @@ const Score = ({
 export default Score;
 
 export const VerticalLine = ({ children }) => (
-  <div css={styles.verticalLine()}>{children}</div>
+  <div className={styles.verticalLine}>{children}</div>
 );

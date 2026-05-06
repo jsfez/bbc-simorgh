@@ -1,10 +1,9 @@
-/** @jsxImportSource @emotion/react */
 import { getFallbackFootballPeriodLabel } from '../helpers/event-summary';
 import { isInProgressStatus } from '../helpers/event-status-groups';
 import { shouldShowScores } from './centre';
 import Period from './period';
 import VisuallyHiddenText from '../../../../components/VisuallyHiddenText';
-import styles from './index.styles';
+import styles from './index.module.scss';
 
 const MatchProgress = ({ data, isConciseView }) => {
   const { home, away, periodLabel, status, multiLeg } = data;
@@ -33,15 +32,19 @@ const MatchProgress = ({ data, isConciseView }) => {
     return null;
   }
 
+  const matchProgressClassName = isConciseView
+    ? styles.matchProgressWrapper
+    : styles.matchProgressWrapperFull;
+
   return (
-    <div css={styles.matchProgressWrapper(isConciseView)}>
+    <div className={matchProgressClassName}>
       {shouldDisplayAggScore && (
         <>
           <VisuallyHiddenText>
             {`Aggregate score ${home.fullName} ${home.runningScores.aggregate} , ${away.fullName} ${away.runningScores.aggregate}`}
           </VisuallyHiddenText>
           <div
-            css={styles.aggregateScore()}
+            className={styles.aggregateScore}
             data-testid="agg-score"
             aria-hidden="true"
           >
