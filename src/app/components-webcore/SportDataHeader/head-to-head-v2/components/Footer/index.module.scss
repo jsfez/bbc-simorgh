@@ -1,0 +1,54 @@
+@use '@scss/themeTokens' as theme;
+
+.footer {
+  font-size: #{theme.pixelsToRem-px-to-rem(14)};
+  line-height: 1.2857142857142858;
+  padding-block-end: #{theme.pixelsToRem-px-to-rem(16)};
+  text-align: center;
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-end: #{theme.pixelsToRem-px-to-rem(8)};
+  }
+}
+
+.footerTextWrapper {
+  display: inline-block;
+  font-size: #{theme.pixelsToRem-px-to-rem(13)};
+
+  &:not(:first-child) {
+    margin-inline-start: #{theme.$spacings-full};
+  }
+}
+
+.venue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-block-end: #{theme.pixelsToRem-px-to-rem(4)};
+}
+
+.attendanceValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.venueLabel {
+  color: #a8a8a8;
+  padding-inline-end: #{theme.pixelsToRem-px-to-rem(4)};
+}
+
+.attendanceLabel {
+  color: #a8a8a8;
+  padding-inline-end: #{theme.pixelsToRem-px-to-rem(4)};
+}
+
+.horizontalRule {
+  width: #{theme.pixelsToRem-px-to-rem(12)};
+  border: none;
+  border-block-start: #{theme.pixelsToRem-px-to-rem(1)} solid #ffd230;
+  padding-block-end: #{theme.pixelsToRem-px-to-rem(4)};
+}

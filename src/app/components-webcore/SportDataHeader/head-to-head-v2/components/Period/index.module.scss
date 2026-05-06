@@ -1,0 +1,9 @@
+@use '@scss/themeTokens' as theme;
+
+.period {
+  display: flex;
+  justify-content: center;
+  color: #ffd230;
+  font-size: 1rem;
+  line-height: 1.375;
+}

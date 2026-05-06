@@ -1,8 +1,8 @@
-import { getFallbackFootballPeriodLabel } from '../helpers/event-summary';
-import { isInProgressStatus } from '../helpers/event-status-groups';
-import { shouldShowScores } from './centre';
-import Period from './period';
-import VisuallyHiddenText from '../../../../components/VisuallyHiddenText';
+import { getFallbackFootballPeriodLabel } from '../../helpers/event-summary';
+import { isInProgressStatus } from '../../helpers/event-status-groups';
+import { shouldShowScores } from '../Centre';
+import Period from '../Period';
+import VisuallyHiddenText from '../../../../../components/VisuallyHiddenText';
 import styles from './index.module.scss';
 
 const MatchProgress = ({ data, isConciseView }) => {

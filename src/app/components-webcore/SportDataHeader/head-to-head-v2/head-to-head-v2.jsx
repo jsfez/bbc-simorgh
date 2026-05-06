@@ -1,9 +1,9 @@
-import Footer from './components/footer';
-import HeadToHeadHeader from './components/head-to-head-header';
+import Footer from './components/Footer';
+import HeadToHeadHeader from './components/HeadToHeadHeader';
 import { HeadToHeadBanner } from './components/head-to-head-banner';
 import { ConditionalOnwardJourneyLink } from './components/conditional-onward-journey-link';
 import { Actions } from './components/actions';
-import styles from './components/index.module.scss';
+import styles from './head-to-head-v2.module.scss';
 
 /**
  * @type {typeof import('./types.ts').HeadToHeadV2}

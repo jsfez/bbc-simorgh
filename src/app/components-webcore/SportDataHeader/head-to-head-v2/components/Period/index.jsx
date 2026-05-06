@@ -1,4 +1,4 @@
-import { getFallbackFootballPeriodLabel } from '../helpers/event-summary';
+import { getFallbackFootballPeriodLabel } from '../../helpers/event-summary';
 import styles from './index.module.scss';
 
 const Period = ({ labels, status, homeRunningScores, awayRunningScores }) => {

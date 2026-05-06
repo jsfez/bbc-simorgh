@@ -1,0 +1,23 @@
+@use '@scss/themeTokens' as theme;
+
+.penaltyScoresContainer {
+  font-size: 1rem;
+  line-height: 1.375;
+  text-align: center;
+  padding-block: #{theme.pixelsToRem-px-to-rem(4)};
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    padding-block-end: #{theme.$spacings-full};
+  }
+}
+
+.winningTeamName {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 700;
+  font-feature-settings: 'ss01' off;
+  color: #ffd230;
+}
+
+.penaltiesText {
+  color: #a8a8a8;
+}

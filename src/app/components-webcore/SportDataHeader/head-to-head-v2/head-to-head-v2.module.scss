@@ -1,0 +1,33 @@
+@use '@scss/themeTokens' as theme;
+
+.headToHeadWrapper {
+  background: #181818; // GREY_16
+  border-left: medium none #009e9e;
+}
+
+.headToHeadWrapperConcise {
+  background: #202020; // GREY_15
+  border-left: medium none #009e9e;
+}
+
+.headToHead {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 400;
+  font-feature-settings: 'ss01' off;
+  color: #f8f8f8;
+  padding: 0;
+  padding-bottom: #{theme.$spacings-triple};
+
+  @media (max-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    padding-top: 0;
+    padding-bottom: #{theme.$spacings-full};
+  }
+}
+
+.headToHeadConcise {
+  font-family: ReithSans, Helvetica, Arial, freesans, sans-serif;
+  font-weight: 400;
+  font-feature-settings: 'ss01' off;
+  color: #f8f8f8;
+  padding: #{theme.$spacings-full};
+}

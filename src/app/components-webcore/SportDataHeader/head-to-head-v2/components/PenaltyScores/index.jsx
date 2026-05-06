@@ -1,4 +1,4 @@
-import VisuallyHiddenText from '../../../../components/VisuallyHiddenText';
+import VisuallyHiddenText from '../../../../../components/VisuallyHiddenText';
 import styles from './index.module.scss';
 
 const PenaltyScores = ({ data }) => {

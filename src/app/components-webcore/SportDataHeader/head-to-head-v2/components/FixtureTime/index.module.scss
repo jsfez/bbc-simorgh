@@ -1,0 +1,17 @@
+@use '@scss/themeTokens' as theme;
+
+.fixtureTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: #{theme.pixelsToRem-px-to-rem(40)};
+  line-height: 1.125;
+  font-weight: 500;
+  padding-inline: #{theme.pixelsToRem-px-to-rem(4)};
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    font-size: #{theme.pixelsToRem-px-to-rem(50)};
+    line-height: 1.08;
+    padding-inline: #{theme.$spacings-quadruple};
+  }
+}

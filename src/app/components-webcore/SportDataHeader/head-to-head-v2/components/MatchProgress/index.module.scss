@@ -1,0 +1,19 @@
+@use '@scss/themeTokens' as theme;
+
+.matchProgressWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.matchProgressWrapperFull {
+  display: flex;
+  flex-direction: column;
+  padding-block: #{theme.$spacings-full} #{theme.pixelsToRem-px-to-rem(4)};
+  gap: #{theme.$spacings-full};
+}
+
+.aggregateScore {
+  font-size: #{theme.pixelsToRem-px-to-rem(14)};
+  line-height: 1.2857142857142858;
+  text-align: center;
+}

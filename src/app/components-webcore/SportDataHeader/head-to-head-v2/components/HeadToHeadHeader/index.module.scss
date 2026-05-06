@@ -1,0 +1,84 @@
+@use '@scss/themeTokens' as theme;
+
+.headerWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: #{theme.pixelsToRem-px-to-rem(14)};
+  line-height: 1.2857142857142858;
+  padding-block-end: #{theme.$spacings-double};
+  padding-block-start: #{theme.$spacings-double};
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    flex-direction: row;
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-start: #{theme.$spacings-triple};
+  }
+}
+
+.headerWrapperLive {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: #{theme.pixelsToRem-px-to-rem(14)};
+  line-height: 1.2857142857142858;
+  padding-block-end: #{theme.$spacings-double};
+  padding-block-start: 0;
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    flex-direction: row;
+    font-size: 1rem;
+    line-height: 1.375;
+    padding-block-start: #{theme.$spacings-full};
+  }
+}
+
+.dateWrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    flex-direction: row;
+  }
+}
+
+.dateHeader {
+  display: flex;
+  justify-content: center;
+  padding-block-end: #{theme.pixelsToRem-px-to-rem(4)};
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    padding-block-end: 0;
+  }
+}
+
+.interpunct {
+  color: #a8a8a8;
+  display: none;
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    display: inline;
+    padding-inline: #{theme.$spacings-full};
+  }
+}
+
+.tournamentHeader {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.date {
+  color: #a8a8a8;
+  flex-shrink: 0;
+}
+
+.competitionFormatter {
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0;
+  flex-shrink: 1;
+}

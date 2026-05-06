@@ -2,10 +2,10 @@ import {
   isCalledOffStatus,
   isInProgressStatus,
   isResultStatus,
-} from '../helpers/event-status-groups';
+} from '../../helpers/event-status-groups';
 
-import Time from './fixture-time';
-import Score from './score';
+import Time from '../FixtureTime';
+import Score from '../Score';
 import styles from './index.module.scss';
 
 export const shouldShowScores = statusGroup =>

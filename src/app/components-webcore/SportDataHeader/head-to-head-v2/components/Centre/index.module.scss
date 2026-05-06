@@ -1,0 +1,23 @@
+@use '@scss/themeTokens' as theme;
+
+.centre {
+  display: flex;
+  flex-direction: column;
+  align-self: space-evenly;
+  min-width: #{theme.pixelsToRem-px-to-rem(77)};
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    min-width: #{theme.pixelsToRem-px-to-rem(85)};
+  }
+}
+
+.centreWideScore {
+  display: flex;
+  flex-direction: column;
+  align-self: space-evenly;
+  min-width: #{theme.pixelsToRem-px-to-rem(90)};
+
+  @media (min-width: #{theme.$mediaQueries-group-3-min-width-bp}) {
+    min-width: #{theme.pixelsToRem-px-to-rem(106)};
+  }
+}

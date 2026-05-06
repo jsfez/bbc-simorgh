@@ -1,4 +1,4 @@
-import { isLiveStatus } from '../helpers/event-status-groups';
+import { isLiveStatus } from '../../helpers/event-status-groups';
 import styles from './index.module.scss';
 
 const formatTournamentDescriptionLabel = tournamentDescriptionLabel => {

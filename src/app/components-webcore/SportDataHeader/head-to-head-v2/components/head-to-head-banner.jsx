@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import VisuallyHiddenText from '../../../../components/VisuallyHiddenText';
 import Team from './team';
-import Centre from './centre';
-import MatchProgress from './match-progress';
-import PenaltyScores from './penalty-scores';
+import Centre from './Centre';
+import MatchProgress from './MatchProgress';
+import PenaltyScores from './PenaltyScores';
 import styles from './index.styles';
 
 const ItemWrapper = ({

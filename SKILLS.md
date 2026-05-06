@@ -197,16 +197,32 @@ This skill helps convert components from Emotion's `css` prop pattern (or `@emot
 These components demonstrate the completed migration pattern:
 - [src/app/components/ArticleLinksBlock/](src/app/components/ArticleLinksBlock/) - Full migration with nested components
 - [src/app/components/ArticleLinksBlock/Promo/](src/app/components/ArticleLinksBlock/Promo/) - Shows dark UI, Opera Mini, and media query patterns
+- [src/app/components/Curation/Subhead/](src/app/components/Curation/Subhead/) - Simple component example
 
-## File Structure After Migration
+## File Structure Best Practices
+
+**Key principle: Each component folder gets its own `index.module.scss`**
+
+Do NOT create one shared styles file for multiple components. Instead, colocate styles with each component:
 
 ```
-components/
-├── index.module.scss    # NEW: SCSS module with styles
-├── index.styles.tsx     # KEEP: Original Emotion styles (for reference during migration)
-├── index.tsx            # UPDATE: Use className instead of css prop
-└── index.test.tsx       # UPDATE: May need snapshot updates
+ComponentFolder/
+├── index.module.scss    # Styles ONLY for this component
+├── index.styles.tsx     # KEEP: Original Emotion styles (for reference)
+├── index.tsx            # Imports ./index.module.scss
+├── index.test.tsx
+└── SubComponent/
+    ├── index.module.scss  # Separate styles for SubComponent
+    ├── index.styles.tsx
+    └── index.tsx          # Imports ./index.module.scss (its own)
 ```
+
+**Why separate files?**
+- Better code organization and maintainability
+- Easier to find styles for a specific component
+- Prevents style file bloat
+- Enables tree-shaking of unused styles
+- Follows CSS Modules philosophy of scoped, component-specific styles
 
 ## Key Migration Patterns
 
@@ -490,7 +506,7 @@ import clsx from 'clsx';
 
 ## Migration Checklist
 
-1. [ ] Create `index.module.scss` file alongside the component
+1. [ ] Create `index.module.scss` file **in the same folder as the component** (not shared)
 2. [ ] Add `@use '@scss/themeTokens' as theme;` at the top
 3. [ ] Convert each style function to a CSS class
 4. [ ] Update component imports: `import styles from './index.module.scss'`
@@ -501,27 +517,29 @@ import clsx from 'clsx';
 9. [ ] Keep `.styles.tsx` file for reference until migration is verified
 10. [ ] Test dark UI mode if applicable
 11. [ ] Test RTL languages if component uses directional styles
+12. [ ] Repeat for each subcomponent folder (each gets its own `index.module.scss`)
 
 ## Common Mistakes to Avoid
 
-1. **Don't forget SCSS interpolation** for variables: `#{theme.$spacings-double}` not `theme.$spacings-double`
-2. **Don't use camelCase in SCSS property names**: `background-color` not `backgroundColor`
-3. **Don't forget to kebab-case font size names**: `long-primer` not `longPrimer`
-4. **Don't mix `css` prop and `className`** in the same element
-5. **Don't forget `:global()` wrapper** for global class selectors like `[data-is-dark-ui='true']`
-6. **Don't use `content: ""` in SCSS** - use `content: ''` (single quotes)
-7. **Don't forget the `&` parent selector** when nesting dark UI overrides
+1. **Don't create one shared styles file for multiple components** - Each component folder should have its own `index.module.scss`
+2. **Don't import individual SCSS files** - Use `@use '@scss/themeTokens' as theme;` which aggregates all tokens
+3. **Don't forget SCSS interpolation** for variables: `#{theme.$spacings-double}` not `theme.$spacings-double`
+4. **Don't use camelCase in SCSS property names**: `background-color` not `backgroundColor`
+5. **Don't forget to kebab-case font size names**: `long-primer` not `longPrimer`
+6. **Don't mix `css` prop and `className`** in the same element
+7. **Don't forget `:global()` wrapper** for global class selectors like `[data-is-dark-ui='true']`
+8. **Don't use `content: ""` in SCSS** - use `content: ''` (single quotes)
+9. **Don't forget the `&` parent selector** when nesting dark UI overrides
 
 ## SCSS Module Path Alias
 
 The project uses `@scss/` as an alias to the ThemeProviderSCSSModules directory. This is configured in the build system.
 
 ```scss
-// This works
+// RECOMMENDED: Use themeTokens which aggregates all tokens
 @use '@scss/themeTokens' as theme;
 
-// This also works for individual files
-@use '@scss/palette' as palette;
-@use '@scss/spacings' as spacings;
+// NOT RECOMMENDED: Individual imports (use only when you need specific utilities)
+// @use '@scss/px-to-rem' as *;
 ```
 
