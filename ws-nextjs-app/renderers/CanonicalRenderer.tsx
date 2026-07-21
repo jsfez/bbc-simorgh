@@ -9,6 +9,7 @@ import addOperaMiniClassScript from '#app/lib/utilities/addOperaMiniClassScript'
 import { BaseRendererProps } from './types';
 import ReverbTemplate from './ReverbTemplate';
 import ComponentTracking from './ComponentTracking';
+import StaticPageViewTracking from './StaticPageViewTracking';
 
 interface Props extends BaseRendererProps {
   data: Record<string, unknown>;
@@ -118,6 +119,7 @@ export default function CanonicalRenderer({
           }}
         />
         {addOperaMiniClassScript(nonce)}
+        <StaticPageViewTracking {...(nonce ? { nonce } : {})} />
         <ComponentTracking
           {...(nonce ? { nonce } : {})}
           trackComponentViews={false}
