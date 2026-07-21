@@ -32,6 +32,7 @@ import litePageTransforms from '../renderers/litePageTransforms';
 import LiteRenderer from '../renderers/LiteRenderer';
 import AmpRenderer from '../renderers/AmpRenderer';
 import derivePageType from '../utilities/derivePageType';
+import StaticPageViewTracking from '#nextjs/renderers/StaticPageViewTracking';
 
 type DocProps = {
   clientSideEnvVariables: EnvConfig;
@@ -220,6 +221,7 @@ export default class AppDocument extends Document<DocProps> {
               {title}
               {helmetMetaTags}
               {helmetLinkTags}
+              <StaticPageViewTracking />
               <ComponentTracking
                 trackComponentViews={false}
                 enableStaticClickTrackingOnOperaMiniOnly
