@@ -78,6 +78,14 @@ const ProgramCard = ({ program, id, ...props }) => {
   const { state, startTime, link, brandTitle, summary, duration } = program;
   return (
     <CardWrapper>
+      <ButtonWrapper {...programStateConfig[state]}>
+        <IconWrapper {...programStateConfig[state]}>
+          {mediaIcons.audio}
+        </IconWrapper>
+        <DurationWrapper dir={dir} dateTime={duration} suppressHydrationWarning>
+          <span aria-hidden="true">{formatDuration({ duration, locale })}</span>
+        </DurationWrapper>
+      </ButtonWrapper>
       <TextWrapper>
         <StyledH3 {...programStateConfig[state]}>
           <ScheduleItemHeader
@@ -93,14 +101,6 @@ const ProgramCard = ({ program, id, ...props }) => {
         </StyledH3>
         {summary && <SummaryWrapper>{summary}</SummaryWrapper>}
       </TextWrapper>
-      <ButtonWrapper {...programStateConfig[state]}>
-        <IconWrapper {...programStateConfig[state]}>
-          {mediaIcons.audio}
-        </IconWrapper>
-        <DurationWrapper dir={dir} dateTime={duration} suppressHydrationWarning>
-          <span aria-hidden="true">{formatDuration({ duration, locale })}</span>
-        </DurationWrapper>
-      </ButtonWrapper>
     </CardWrapper>
   );
 };
