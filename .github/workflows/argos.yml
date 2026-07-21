@@ -1,0 +1,67 @@
+name: Argos visual tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'latest'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  # Argos authenticates through GitHub's OIDC provider, so this workflow needs
+  # no project token of its own.
+  id-token: write
+
+jobs:
+  argos:
+    name: Visual tests
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Argos resolves the base build by walking the commit history, so it
+          # needs the full history. `blob:none` fetches the commits and trees
+          # without the file contents of every past revision, which keeps this
+          # step short on a repository this size.
+          fetch-depth: 0
+          filter: blob:none
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Cache Node Modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ws-nextjs-app/node_modules
+          key: node-modules-${{ hashFiles('yarn.lock', 'ws-nextjs-app/yarn.lock') }}
+
+      - name: Install Node Modules
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: ./scripts/installNodeModules.sh
+
+      # Same Storybook build the Chromatic step publishes, so both tools look at
+      # the same bundle.
+      - name: Build Storybook
+        run: yarn build:storybook
+
+      - name: Install Argos test dependencies
+        working-directory: argos
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Take screenshots
+        working-directory: argos
+        run: npx playwright test -c playwright.config.ts
